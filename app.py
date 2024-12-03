@@ -47,8 +47,10 @@ from flask import Flask, request, jsonify, render_template
 import asyncio
 from backend import AIMODEL, search_urls, create_crawler
 import json
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 model = AIMODEL()
 
@@ -66,23 +68,20 @@ def clean_response(raw_response):
         
     return data
         
-
-@app.route("/")
-def home():
-    return render_template("demo.html")
-
 @app.route("/analyze", methods=["POST"])
 def analyze():
     print("GOT THE QUERY\n")
     user_input = request.json.get("query")
+    print(user_input)
     if not user_input:
         return jsonify({"error": "No query provided"}), 400
 
-    if any(kwd not in user_input for kwd in ["http", "www"]):
+    if any(kwd not in user_input for kwd in ["http", "www", "https", "://"]):
         query = user_input
     else:
         query = model.generate_search_queries(user_input)
-
+    
+    print(query)
     print("GENERATED THE QUERY\n")
     urls = search_urls(query)
     scraped_content = {}

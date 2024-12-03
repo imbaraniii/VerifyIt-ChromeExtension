@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "Real Time Fact Checker",
+    "description": "Fact check any content",
+    "version": "1.0",
+    "action": {
+        "default_popup": "/templates/demo.html"
+    },
+
+    "permissions": [
+      "activeTab"
+    ],
+
+    "host_permissions": [
+        "http://localhost:5000/*"
+    ]
+}
