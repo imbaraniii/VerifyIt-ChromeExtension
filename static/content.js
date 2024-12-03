@@ -17,13 +17,11 @@ function injectAnalyzeButton() {
     // Add click event listener
     analyzeButton.addEventListener('click', async () => {
       try {
-        const title = document.title;
-        const bodyContent = document.body.innerText || document.body.textContent; // Extract body content
-  
+        // Send current page URL to background script/extension
         const response = await fetch('http://127.0.0.1:5000/analyze', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ title: title, content: bodyContent, url: window.location.href })
+          body: JSON.stringify({ query: window.location.href })
         });
   
         if (response.ok) {
@@ -78,7 +76,7 @@ function injectAnalyzeButton() {
   
     // Append button to document body
     document.body.appendChild(analyzeButton);
-}
+  }
   
-// Run the injection when the page loads
-injectAnalyzeButton();
+  // Run the injection when the page loads
+  injectAnalyzeButton();

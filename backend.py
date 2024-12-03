@@ -79,19 +79,14 @@ def search_urls(search_query=None):
         'q': search_query
     }
 
-    response = requests.get(base_url, params=params)
+    response = requests.get(base_url, params=params) # Get the links
     url = []
-    
-    if response.status_code == 200:
-        response_json = response.json()
-        if 'items' in response_json:
-            links = response_json['items']
-            for item in links:
-                print(item['link'])
-                url.append(item['link'])
-        else:
-            print("No 'items' key in response:", response_json)
+    if response:
+        links = response.json()['items'] # get only the items which contains the links
+        for item in links:
+            print(item['link'])
+            url.append(item['link'])
     else:
-        print("Search request failed:", response.status_code, response.text)
+        print(response)
 
     return url
