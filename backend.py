@@ -30,7 +30,7 @@ class AIMODEL:
                 {
                     "role": "user",
                     "parts": [
-                        "Examine the URL and identify the main topic being discussed. Provide just the complete topic name",
+                        "Examine the URL and identify the main topic being discussed. Provide the complete main topic on what is being discussed in the url. I dont want any introductory responses from you",
                     ],
                 },
             ]
@@ -38,19 +38,19 @@ class AIMODEL:
         response = chat_session.send_message(target)
         return response.text
 
-    def analyse_url(self, topic, content):
+    def analyse_url(self, topic, content, target_content=None):
         chat_session = self.model.start_chat(
             history=[
                 {
                     "role": "user",
                     "parts": [
-                        "Act as a distinguisher for verifying the truthfulness of a given title based on web-scraped content from multiple URLs.. Analyze the given title using the provided web-scraped content from multiple URLs to determine its accuracy. Based on the evidence, conclude whether the title is true, false, or uncertain. If uncertain, provide a possible likelihood of the title's accuracy.\n\nAssign a trustworthiness score (ranging from 0 to 1) to the title, reflecting its reliability. Additionally, provide links to credible sources that support your conclusion, along with their trustworthiness scores. Avoid explicitly discussing the details of the sources—simply indicate their credibility and relevance. Provide the response in a dictionary format, where it has a key value pair, which contains these (title, bool, t_score, concl, source)",
+                        "Evaluate the truthfulness of a given title and corresponding target_content_to_examine, using web-scraped data from multiple URLs. Analyze the evidence from these sources to determine if the title and corresponding target_content_to_examine is accurate, false, or uncertain. If the conclusion is uncertain, provide a likelihood estimate for the title's accuracy.\n\nAssign a trustworthiness score (ranging from 0 to 1) to the title, reflecting its reliability. Additionally, provide links to credible sources that support your conclusion, along with their trustworthiness scores. Avoid explicitly discussing the details of the sources—simply indicate their credibility and relevance. Provide the response in a dictionary format, where it has a key value pair, which contains these (title, bool, t_score, concl, source)",
                     ],
                 },
             ]
         )
 
-        response = chat_session.send_message(f"Title: {topic}, Web_content: {content}")
+        response = chat_session.send_message(f"Title: {topic}, Target_Content_to_examine: {target_content}, Source_to_refer: {content}")
         # response = ast.literal_eval(response.text.strip())
         return response.text
 
@@ -59,7 +59,7 @@ async def create_crawler(url):
         result = await crawler.arun(
             url=url,
             word_count_threshold=20,
-            excluded_tags=['form', 'nav'],
+            excluded_tags=['form', 'nav', 'aside', 'footer', 'header', 'iframe', 'script', 'style'],
             remove_overlay_elements=True,
             exclude_external_links=True,
             exclude_social_media_links=True,
@@ -79,14 +79,19 @@ def search_urls(search_query=None):
         'q': search_query
     }
 
-    response = requests.get(base_url, params=params) # Get the links
+    response = requests.get(base_url, params=params)
     url = []
-    if response:
-        links = response.json()['items'] # get only the items which contains the links
-        for item in links:
-            print(item['link'])
-            url.append(item['link'])
+    
+    if response.status_code == 200:
+        response_json = response.json()
+        if 'items' in response_json:
+            links = response_json['items']
+            for item in links:
+                print(item['link'])
+                url.append(item['link'])
+        else:
+            print("No 'items' key in response:", response_json)
     else:
-        print(response)
+        print("Search request failed:", response.status_code, response.text)
 
     return url
