@@ -96,6 +96,7 @@ def analyze():
 
     print("DONE SCRAPING\n")
     combined_content = "\n".join(scraped_content.values())  # Combine the scraped content
+    combined_content += f"\n\n\nThese are the url's which were used to analyse : {urls}"
     analysis_result_raw = model.analyse_url(query, combined_content, target)
     print("DONE ANALYZING\n")
 
