@@ -1,46 +1,3 @@
-function injectAnalyzeButton() {
-  const analyzeButton = document.createElement('button');
-  analyzeButton.innerHTML = '📊 Analyze';
-  analyzeButton.style.position = 'fixed';
-  analyzeButton.style.top = '10px';
-  analyzeButton.style.right = '10px';
-  analyzeButton.style.zIndex = '9999';
-  analyzeButton.style.padding = '10px 15px';
-  analyzeButton.style.backgroundColor = '#007BFF';
-  analyzeButton.style.color = 'white';
-  analyzeButton.style.border = 'none';
-  analyzeButton.style.borderRadius = '5px';
-  analyzeButton.style.cursor = 'pointer';
-  analyzeButton.style.display = 'flex';
-  analyzeButton.style.alignItems = 'center';
-  analyzeButton.style.gap = '5px';
-
-  analyzeButton.addEventListener('click', async () => {
-    const loadingOverlay = createLoadingOverlay();
-    try {
-      const response = await fetch('http://127.0.0.1:5000/analyze', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: window.location.href })
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        createResultOverlay(data, loadingOverlay);
-      } else {
-        alert('Failed to analyze article');
-        loadingOverlay.remove();
-      }
-    } catch (error) {
-      console.error('Analysis error:', error);
-      alert('Error analyzing article');
-      loadingOverlay.remove();
-    }
-  });
-
-  document.body.appendChild(analyzeButton);
-}
-
 function createLoadingOverlay() {
   const loadingOverlay = document.createElement('div');
   loadingOverlay.style.position = 'fixed';
@@ -82,7 +39,7 @@ function createResultOverlay(data, loadingOverlay) {
 
   overlay.innerHTML = `
       <div style="max-width: 600px; background: #2c2c2c; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-          <h2 style="color: #4CAF50; margin-bottom: 20px; text-align: center;">Article Analysis</h2>
+          <h2 style="color: #4CAF50; margin-bottom: 20px; text-align: center;">Text Analysis</h2>
           <div style="background: #3c3c3c; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
               <p><strong style="color: #4CAF50;">Title:</strong> ${data.title}</p>
               <p><strong style="color: #4CAF50;">Truthfulness:</strong> ${data.bool}</p>
@@ -110,5 +67,60 @@ function createResultOverlay(data, loadingOverlay) {
 
   document.body.appendChild(overlay);
 }
+
+function analyzeContent(query) {
+  const loadingOverlay = createLoadingOverlay();
+  
+  fetch('http://127.0.0.1:5000/analyze', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query: query })
+  })
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    }
+    throw new Error('Failed to analyze content');
+  })
+  .then(data => {
+    createResultOverlay(data, loadingOverlay);
+  })
+  .catch(error => {
+    console.error('Analysis error:', error);
+    alert('Error analyzing content');
+    loadingOverlay.remove();
+  });
+}
+
+function injectAnalyzeButton() {
+  const analyzeButton = document.createElement('button');
+  analyzeButton.innerHTML = '📊 Analyze';
+  analyzeButton.style.position = 'fixed';
+  analyzeButton.style.top = '10px';
+  analyzeButton.style.right = '10px';
+  analyzeButton.style.zIndex = '9999';
+  analyzeButton.style.padding = '10px 15px';
+  analyzeButton.style.backgroundColor = '#007BFF';
+  analyzeButton.style.color = 'white';
+  analyzeButton.style.border = 'none';
+  analyzeButton.style.borderRadius = '5px';
+  analyzeButton.style.cursor = 'pointer';
+  analyzeButton.style.display = 'flex';
+  analyzeButton.style.alignItems = 'center';
+  analyzeButton.style.gap = '5px';
+
+  analyzeButton.addEventListener('click', () => {
+    analyzeContent(window.location.href);
+  });
+
+  document.body.appendChild(analyzeButton);
+}
+
+// Listen for messages from background script
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === "analyzeSelectedText") {
+    analyzeContent(request.selectedText);
+  }
+});
 
 injectAnalyzeButton();
