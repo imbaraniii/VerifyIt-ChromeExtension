@@ -48,7 +48,7 @@ import asyncio
 from backend import AIMODEL, search_urls, create_crawler
 import json
 from flask_cors import CORS
-
+from flask import json
 app = Flask(__name__)
 CORS(app)
 
@@ -73,17 +73,18 @@ def analyze():
     print("GOT THE QUERY\n")
     user_input = request.json.get("query")
     print(user_input)
+    
     if not user_input:
         return jsonify({"error": "No query provided"}), 400
-
-    if any(kwd not in user_input for kwd in ["http", "www", "https", "://"]):
-        query = user_input
+    
+    # Check if the input is a URL
+    if any(kwd in user_input for kwd in ["http", "www", "https", "://"]):
+        urls = [user_input]  # Directly use the input URL
     else:
         query = model.generate_search_queries(user_input)
-    
-    print(query)
-    print("GENERATED THE QUERY\n")
-    urls = search_urls(query)
+        print("Generated Query:", query)
+        urls = search_urls(query)  # Perform a search to get relevant URLs
+
     scraped_content = {}
     for url in urls[:4]:
         content = asyncio.run(create_crawler(url))
@@ -93,15 +94,14 @@ def analyze():
     combined_content = "\n".join(scraped_content.values())  # Combine the scraped content
     print(f"The scraped content is: {combined_content}")
 
-    analysis_result_raw = model.analyse_url(query, combined_content)
+    analysis_result_raw = model.analyse_url(user_input, combined_content)
     print("DONE ANALYZING\n")
-    print(type(analysis_result_raw))
-    print(analysis_result_raw)
 
     analysis_result = clean_response(analysis_result_raw)
     print(analysis_result)
 
     return jsonify(analysis_result)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
