@@ -3,8 +3,6 @@ from dotenv import load_dotenv
 import os
 from crawl4ai import AsyncWebCrawler
 import google.generativeai as genai
-import ast
-
 load_dotenv()
 
 class AIMODEL:
@@ -44,7 +42,7 @@ class AIMODEL:
                 {
                     "role": "user",
                     "parts": [
-                        "Evaluate the truthfulness of a given title and corresponding target_content_to_examine, using web-scraped data from multiple URLs. Analyze the evidence from these sources to determine if the title and corresponding target_content_to_examine is accurate, false, or uncertain. If the conclusion is uncertain, provide a likelihood estimate for the title's accuracy.\n\nAssign a trustworthiness score (ranging from 0 to 1) to the title, reflecting its reliability. Additionally, I have provided the links to refer at the end, consider them provide those links to which support your conclusion, along with their trustworthiness scores. Avoid explicitly discussing the details of the sources—simply indicate their credibility and relevance. Provide the response in a dictionary format, where it has a key value pair, which contains these (title, bool, t_score, concl, source)",
+                        "Evaluate the accuracy of a given title and its associated target_content_to_examine using web-scraped data from multiple sources. Analyze the evidence from these sources to determine if the title and content are accurate, false, or uncertain. If the conclusion is uncertain, provide an estimated likelihood of the title's accuracy. \n\n\nAssign a trust score (between 0 and 1) to the title, reflecting its reliability. Include links supporting the conclusion, along with their respective trust scores. Also, provide an explanation for the trustworthiness assessment as a conclusion, avoiding explicit details about the sources—focus instead on their credibility and relevance. Provide the response in a dictionary format, where it has a key value pair, which contains these (title, bool, t_score, concl, source)",
                     ],
                 },
             ]

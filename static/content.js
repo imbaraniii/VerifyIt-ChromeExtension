@@ -122,6 +122,25 @@ function createResultOverlay(data, loadingOverlay) {
             color: #2c3e50;
             font-weight: bold;
             margin-bottom: 5px;
+          ">Title: </p>
+          <div style="
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          ">
+            <span style="
+              color: ${getTruthColor(data.bool)};
+              font-weight: bold;
+              font-size: 18px;
+            ">
+              ${data.title}
+            </span>
+          </div>
+          <p style="
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 5px;
+            margin-top: 5px;
           ">Claim Truthfulness</p>
           <div style="
             display: flex;
@@ -254,8 +273,6 @@ function createResultOverlay(data, loadingOverlay) {
   document.body.appendChild(overlay);
 }
 
-// Rest of the code remains the same as in the previous implementation
-
 function storeHistory(data) {
   chrome.storage.local.get('history', function (result) {
     let history = result.history || [];
@@ -280,6 +297,7 @@ function analyzeContent(query) {
     throw new Error('Failed to analyze content');
   })
   .then(data => {
+    storeHistory(data);
     createResultOverlay(data, loadingOverlay);
   })
   .catch(error => {

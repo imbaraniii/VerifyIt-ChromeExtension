@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify
 import asyncio
 from backend import AIMODEL, search_urls, create_crawler
 import json

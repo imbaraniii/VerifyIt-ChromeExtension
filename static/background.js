@@ -1,16 +1,16 @@
 chrome.runtime.onInstalled.addListener(() => {
-    chrome.contextMenus.create({
-      id: "VerifyIt Selected Text",
-      title: "Analyze Text",
-      contexts: ["selection"]
+  chrome.contextMenus.create({
+    id: "analyzeSelectedText",
+    title: "VerifyIt Selected Test",
+    contexts: ["selection"]
+  });
+});
+
+chrome.contextMenus.onClicked.addListener((info, tab) => {
+  if (info.menuItemId === "analyzeSelectedText") {
+    chrome.tabs.sendMessage(tab.id, {
+      action: "analyzeSelectedText",
+      selectedText: info.selectionText
     });
-  });
-  
-  chrome.contextMenus.onClicked.addListener((info, tab) => {
-    if (info.menuItemId === "analyzeSelectedText") {
-      chrome.tabs.sendMessage(tab.id, {
-        action: "analyzeSelectedText",
-        selectedText: info.selectionText
-      });
-    }
-  });
+  }
+});

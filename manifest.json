@@ -5,7 +5,9 @@
   "version": "1.0",
   "permissions": [
     "activeTab",
-    "contextMenus"
+    "contextMenus",
+    "storage",
+    "scripting"
   ],
   "host_permissions": [
     "http://localhost:5000/*"
