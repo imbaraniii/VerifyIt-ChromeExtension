@@ -1,8 +1,11 @@
-# VerifyIt - Verify Truth in an Instant 🌟
-**Part of Chrome Built-in AI Hackathon 2024**
 
-![WhatsApp Image 2024-12-04 at 11 59 40 AM](https://github.com/user-attachments/assets/66344982-f429-423c-8b8f-31d384d0b9ea)
 
+# VerifyIt - Verify Truth in an Instant 
+
+<h3>Part of Chrome Built-in AI Hackathon 2024</h3>
+<div style="display: flex; align-items: center; justify-content: space-between;">
+    <a href = https://github.com/thespectacular314/VerifyIt---Chrome-Extension/><img src="https://github.com/user-attachments/assets/66344982-f429-423c-8b8f-31d384d0b9ea" alt="Logo" height="100"></a>
+</div>
 
 ## **About VerifyIt**
 Welcome to **VerifyIt**, the ultimate fact-checking Chrome extension designed to empower your digital journey.  
