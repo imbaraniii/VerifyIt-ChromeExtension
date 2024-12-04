@@ -40,6 +40,8 @@ Whether you're navigating news, social media, or research, **VerifyIt** uses **c
 Check out our **live demo video** to see VerifyIt in action:  
 [![Watch the Video](https://img.youtube.com/vi/your-video-id/hqdefault.jpg)](https://www.youtube.com/watch?v=your-video-id)  
 
+<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/g_NnTCLrM20?si=DVZO3Xl1CdD5627p&amp;controls=0&amp;start=3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>-->
+
 ---
 
 ## 🧩 **How It Works**
