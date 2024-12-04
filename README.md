@@ -55,11 +55,11 @@ Check out our **live demo video** to see VerifyIt in action:
 ## 💡 **Installation Instructions**
 1. Clone this repository:  
    ```bash
-   git clone https://github.com/SaiNivedh26/VerifyIt.git
+   git clone https://www.github.com/thespectacular314/VerifyIt-ChromeExtension.git
 
 2. Navigate to the extension directory:  
    ```bash
-   cd VerifyIt
+   cd VerifyIt-ChromeExtension
    ```
 3. Load the extension:
    - Open Chrome.
@@ -71,25 +71,4 @@ Check out our **live demo video** to see VerifyIt in action:
 5. Go to any webpage you want to fact check and click on the Analysis button on the bottom left for complete URL analysis or select a text and right click to analyse it.
 
 ---
-
-## 🧑‍💻 **Contributing**
-We welcome contributions to improve VerifyIt!  
-- Fork this repository.
-- Create a new branch for your feature:  
-  ```bash
-  git checkout -b feature-name
-  ```
-- Commit your changes and open a pull request.
-
----
-
-## 🌟 **Get Involved**
-Stay updated on the latest features and improvements by following us on GitHub!  
-📧 For queries, reach out at: your-email@example.com.
-
----
-
-**VerifyIt** - Turning information into empowerment, one truth at a time.  
 ```
-
-Replace placeholders like `your-video-id`, `your-email@example.com`, and `SaiNivedh26` with specific project details.
