@@ -1,91 +1,83 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const submitButton = document.getElementById("submitButton");
-    const userInput = document.getElementById("userInput");
-    const resultDiv = document.getElementById("result");
+document.getElementById('checkHistory').addEventListener('click', () => {
+    let historyDiv = document.getElementById('historyDiv');
+    const body = document.body;
+    body.style.minWidth = '400px';
+    if (!historyDiv) {
+        historyDiv = document.createElement('div');
+        historyDiv.id = 'historyDiv';
+        historyDiv.className = 'history-div';
+        historyDiv.style.marginTop = '20px';
 
-    submitButton.addEventListener("click", async () => {
-        const input = userInput.value;
+        // Retrieve history from chrome storage
+        chrome.storage.local.get('history', function (result) {
+            const history = result.history || [];
 
-        if (!input) {
-            alert("Please enter a query!");
-            return;
-        }
+            // Check if there are items in the history
+            if (history.length > 0) {
+                // Loop through history and create a button for each item
+                history.forEach(item => {
+                    const button = document.createElement('button');
+                    button.className = 'historyButton';
+                    button.textContent = item.title;
 
-        // Loading state
-        resultDiv.innerHTML = `
-            <div class="text-center">
-                <div class="spinner-border text-primary" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-                <p class="mt-2 text-muted">Analyzing content...</p>
-            </div>
-        `;
+                    // Add event listener to open the overlay with item details
+                    button.addEventListener('click', () => {
+                        showOverlay(item);
+                    });
 
-        try {
-            const response = await fetch("http://127.0.0.1:5000/analyze", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ query: input }),
-            });
-
-            if (response.ok) {
-                const data = await response.json();
-                let printHtml = `
-                    <div class="card mb-3">
-                        <div class="card-header bg-primary text-white">
-                            <h5 class="mb-0">Analysis Results</h5>
-                        </div>
-                        <div class="card-body">
-                            <p><span class="key">Title:</span> ${data.title}</p>
-                            <p><span class="key">Truthfulness:</span> 
-                                <span class="${data.bool ? 'text-success' : 'text-danger'}">
-                                    ${data.bool}
-                                </span>
-                            </p>
-                            <p><span class="key">Trust Score:</span> ${data.t_score}</p>
-                            <p><span class="key">Conclusion:</span> ${data.concl}</p>
-                        </div>
-                    </div>
-                    <div class="sources-container">
-                        <h6 class="text-primary mb-3">
-                            <i class="bi bi-link-45deg me-2"></i>Sources
-                        </h6>
-                `;
-
-                data.source.forEach((src, index) => {
-                    printHtml += `
-                        <div class="source-item">
-                            <p class="mb-1">
-                                <span class="key">Source ${index + 1}:</span> 
-                                <a href="${src.url}" target="_blank" class="text-decoration-none">
-                                    ${src.url}
-                                </a>
-                            </p>
-                            <p class="mb-0">
-                                <span class="key">Trust Score:</span> 
-                                <span class="badge bg-info">${src.t_score}</span>
-                            </p>
-                        </div>
-                    `;
+                    historyDiv.appendChild(button);
                 });
-
-                printHtml += `</div>`;
-                resultDiv.innerHTML = printHtml;
             } else {
-                resultDiv.innerHTML = `
-                    <div class="alert alert-danger" role="alert">
-                        <i class="bi bi-exclamation-triangle me-2"></i>
-                        Error: Could not fetch data
-                    </div>
-                `;
+                historyDiv.innerHTML = "<center><p>No history available</p></center>";
             }
-        } catch (error) {
-            resultDiv.innerHTML = `
-                <div class="alert alert-danger" role="alert">
-                    <i class="bi bi-exclamation-triangle me-2"></i>
-                    Error: ${error.message}
-                </div>
-            `;
-        }
-    });
+        });
+
+        document.body.appendChild(historyDiv);
+    }
 });
+
+function showOverlay(data) {
+    const overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '90%';
+    overlay.style.height = '90%';
+    overlay.style.backgroundColor = 'rgba(0,0,0,0.8)';
+    overlay.style.zIndex = '10000';
+    overlay.style.color = 'white';
+    overlay.style.padding = '20px';
+    overlay.style.overflowY = 'auto';
+    overlay.style.display = 'flex';
+    overlay.style.justifyContent = 'center';
+    overlay.style.alignItems = 'center';
+
+    overlay.innerHTML = 
+        `<div style="max-width: 600px; background: #2c2c2c; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+          <h2 style="color: #4CAF50; margin-bottom: 20px; text-align: center;">Text Analysis</h2>
+          <div style="background: #3c3c3c; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+              <p><strong style="color: #4CAF50;">Title:</strong> ${data.title}</p>
+              <p><strong style="color: #4CAF50;">Truthfulness:</strong> ${data.bool}</p>
+              <p><strong style="color: #4CAF50;">Trust Score:</strong> ${data.t_score}</p>
+              <p><strong style="color: #4CAF50;">Conclusion:</strong> ${data.concl}</p>
+          </div>
+          <h3 style="color: #4CAF50; margin-bottom: 10px;">Sources:</h3>
+          <div style="max-height: 300px; overflow-y: auto;">
+              ${data.source.map((src, index) => 
+                  `<div style="background: #3c3c3c; padding: 10px; margin-bottom: 10px; border-radius: 5px;">
+                      <p><strong style="color: #4CAF50;">Source ${index + 1}:</strong> <a href="${src.url}" style="color: #4CAF50;" target="_blank">${src.url}</a></p>
+                      <p><strong style="color: #4CAF50;">Source Trust Score:</strong> ${src.t_score}</p>
+                  </div>`
+              ).join('')}
+          </div>
+          <div style="text-align: center; margin-top: 20px;">
+              <button id="close-overlay" style="padding: 10px 20px; background-color: #f44336; color: white; border: none; border-radius: 5px; cursor: pointer;">Close</button>
+          </div>
+      </div>`;
+
+    overlay.querySelector('#close-overlay').addEventListener('click', () => {
+        document.body.removeChild(overlay);
+    });
+
+    document.body.appendChild(overlay);
+}

@@ -1,6 +1,6 @@
 chrome.runtime.onInstalled.addListener(() => {
     chrome.contextMenus.create({
-      id: "analyzeSelectedText",
+      id: "VerifyIt Selected Text",
       title: "Analyze Text",
       contexts: ["selection"]
     });

@@ -5,8 +5,7 @@
   "version": "1.0",
   "permissions": [
     "activeTab",
-    "contextMenus",
-    "http://localhost:5000/*"
+    "contextMenus"
   ],
   "host_permissions": [
     "http://localhost:5000/*"
@@ -15,7 +14,7 @@
     "service_worker": "static/background.js"
   },
   "action": {
-    "default_popup": "/templates/demo.html"
+    "default_popup": "/templates/pop-up.html"
   },
   "content_scripts": [
     {

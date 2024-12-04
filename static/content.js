@@ -84,11 +84,11 @@ function createResultOverlay(data, loadingOverlay) {
       background: white;
       border-radius: 15px;
       box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-      max-width: 500px;
+      max-width: 700px;
       width: 100%;
       padding: 30px;
       position: relative;
-      overflow: hidden;
+      overflow: scroll;
     ">
       <div style="
         position: absolute;
@@ -194,7 +194,7 @@ function createResultOverlay(data, loadingOverlay) {
             justify-content: space-between;
             align-items: center;
           ">
-            <div>
+            <div style="display:flex">
               <p style="
                 color: #2c3e50;
                 font-weight: bold;
@@ -256,6 +256,15 @@ function createResultOverlay(data, loadingOverlay) {
 
 // Rest of the code remains the same as in the previous implementation
 
+function storeHistory(data) {
+  chrome.storage.local.get('history', function (result) {
+    let history = result.history || [];
+    history.push(data);
+    chrome.storage.local.set({ history: history });
+  });
+}
+
+
 function analyzeContent(query) {
   const loadingOverlay = createLoadingOverlay();
   
@@ -282,9 +291,9 @@ function analyzeContent(query) {
 
 function injectAnalyzeButton() {
   const analyzeButton = document.createElement('button');
-  analyzeButton.innerHTML = '📊 Analyze';
+  analyzeButton.innerHTML = 'VerifyIt';
   analyzeButton.style.position = 'fixed';
-  analyzeButton.style.top = '10px';
+  analyzeButton.style.bottom = '10px';
   analyzeButton.style.right = '10px';
   analyzeButton.style.zIndex = '9999';
   analyzeButton.style.padding = '10px 15px';
