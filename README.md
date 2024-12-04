@@ -1,5 +1,8 @@
 # VerifyIt - Verify Truth in an Instant 🌟
 
+![WhatsApp Image 2024-12-04 at 11 59 40 AM](https://github.com/user-attachments/assets/66344982-f429-423c-8b8f-31d384d0b9ea)
+
+
 ## **About VerifyIt**
 Welcome to **VerifyIt**, the ultimate fact-checking Chrome extension designed to empower your digital journey.  
 Whether you're navigating news, social media, or research, **VerifyIt** uses **cutting-edge web scraping** and intelligent analysis to provide instant truth validation for any statement.
