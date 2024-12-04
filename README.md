@@ -16,22 +16,20 @@ Whether you're navigating news, social media, or research, **VerifyIt** uses **c
 ---
 
 ## **Tech Stack**
+### **Google Specific Framework used**
+- **Custom Search API**
+- **Programmable Search Engine by Google**
+- **Gemini AI**
+  
 ### **Frontend**
 - **HTML/CSS**: User-friendly interface design.
 - **JavaScript**: Handles browser interactions.
 
 ### **Backend**
-- **Node.js**: Server-side scripting for data processing.
-- **Puppeteer**: Web scraping framework for automated data retrieval.
-- **Python**: For data analysis and truthfulness scoring.
-
-### **Data Handling**
-- **NLP Algorithms**: Validates statement context using advanced models.
-- **Database**: MongoDB for storing scrapped and processed data.
-
-### **Deployment**
-- **Google Chrome Web Store**: Seamlessly integrate into your browser.
-
+- **Flask API**: Server-side scripting for data processing.
+- **Google's Custom Search Api**: An API search engine used to retrieve the URL's for a query.
+- **Crawl4AI**: Web Scraping Framework
+- **Gemini AI**: For Evaluating the target content for its truthfulness.
 ---
 
 ## **Demo Video**
@@ -41,8 +39,8 @@ Check out our **live demo video** to see VerifyIt in action:
 ---
 
 ## 🧩 **How It Works**
-1. Install the VerifyIt extension from the Chrome Web Store.
-2. Highlight any statement or click on the VerifyIt icon.
+1. Clone the Repo and follow the **Installation Instructions**
+2. Highlight any statement or click on the Analysis Button.
 3. Let VerifyIt scrape, analyze, and rank the results.
 4. Get instant feedback with a truthfulness score and credible sources.
 
@@ -62,6 +60,9 @@ Check out our **live demo video** to see VerifyIt in action:
    - Go to `chrome://extensions`.
    - Enable **Developer Mode**.
    - Click on **Load unpacked** and select the project folder.
+
+4. Run ```python3 app.py```
+5. Go to any webpage you want to fact check and click on the Analysis button on the bottom left for complete URL analysis or select a text and right click to analyse it.
 
 ---
 
