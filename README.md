@@ -45,9 +45,8 @@ Whether you're navigating news, social media, or research, VerifyIt uses cutting
 ## **Demo Video**
 Check out our **live demo video** to see VerifyIt in action:  
 
-![images](https://github.com/thespectacular314/VerifyIt---Chrome-Extension/blob/main/images.gif)
+[![images](https://github.com/thespectacular314/VerifyIt---Chrome-Extension/blob/main/Animation%20-%201733411894860.gif)](https://www.youtube.com/watch?v=g_NnTCLrM20)
 
-https://www.youtube.com/watch?v=g_NnTCLrM20
 
 ---
 
