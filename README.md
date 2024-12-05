@@ -1,6 +1,6 @@
 # VerifyIt - Verify Truth in an Instant 
 
-<h3>Part of Chrome Built-in AI Hackathon 2024</h3>
+<h3>Part of Chrome Built-in AI Hackathon 2024 ⚡ </h3>
 
 ![WhatsApp Image 2024-12-04 at 11 59 40 AM](https://github.com/user-attachments/assets/e1b01b43-5ec3-4b2e-a156-0a76d571605a)
 
@@ -44,18 +44,10 @@ Whether you're navigating news, social media, or research, VerifyIt uses cutting
 
 ## **Demo Video**
 Check out our **live demo video** to see VerifyIt in action:  
-[![Watch the Video](https://img.youtube.com/vi/your-video-id/hqdefault.jpg)](https://www.youtube.com/watch?v=your-video-id)  
 
-<!-- Uncomment the iframe below if using GitHub Pages -->
-<!--
-<iframe width="560" height="315" src="https://www.youtube.com/embed/g_NnTCLrM20?si=DVZO3Xl1CdD5627p&amp;controls=0&amp;start=3" 
-title="YouTube video player" 
-frameborder="0" 
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-referrerpolicy="strict-origin-when-cross-origin" 
-allowfullscreen>
-</iframe>
--->
+![images](https://github.com/user-attachments/assets/8067071c-8ab9-4fd6-afb3-64348e9366a4)
+
+https://www.youtube.com/watch?v=g_NnTCLrM20
 
 ---
 
