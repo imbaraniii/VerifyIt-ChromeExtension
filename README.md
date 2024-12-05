@@ -20,20 +20,29 @@ Whether you're navigating news, social media, or research, VerifyIt uses cutting
 ---
 
 ## **Tech Stack**
-### **Google Specific Framework Used**
+### **Google Specific Framework used**
+
 - **Custom Search API**
 - **Programmable Search Engine by Google**
-- **Gemini AI**
-
+- **Gemini AI** (Use fast infering gemini-1.5-flash)
+  
 ### **Frontend**
-- **HTML/CSS**: User-friendly interface design.
-- **JavaScript**: Handles browser interactions.
+- HTML5 & Bootstrap CSS: Responsive, modern design
+- JavaScript: Dynamic, interactive user experience
 
 ### **Backend**
-- **Flask API**: Server-side scripting for data processing.
-- **Google's Custom Search API**: An API search engine used to retrieve the URLs for a query.
-- **Crawl4AI**: Web scraping framework.
-- **Gemini AI**: For evaluating the target content for its truthfulness.
+- Flask API: Robust server-side processing and to handle asynchronous requests
+- Google Custom Search API: Comprehensive information retrieval
+- Crawl4AI: Intelligent web scraping framework
+- Gemini AI: Advanced content truthfulness evaluation, with Customized prompt template
+
+
+
+### 🔧 Unique Technical Innovations
+
+- **Adaptive Search Query Generation**: Dynamically creates contextual search queries
+- **Intelligent Content Analysis**: Uses AI to understand nuanced information contexts
+- **Secure, Lightweight Extension**: Minimal performance overhead
 
 ---
 
