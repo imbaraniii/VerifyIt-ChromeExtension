@@ -44,6 +44,8 @@ Whether you're navigating news, social media, or research, VerifyIt uses cutting
 - **Intelligent Content Analysis**: Uses AI to understand nuanced information contexts
 - **Secure, Lightweight Extension**: Minimal performance overhead
 
+![images](https://github.com/thespectacular314/VerifyIt---Chrome-Extension/blob/main/Animation%20-%201733412694313.gif)
+
 ---
 
 ## Pipeline
