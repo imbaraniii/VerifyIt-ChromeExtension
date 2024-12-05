@@ -1,5 +1,8 @@
 # VerifyIt - Verify Truth in an Instant 
 
+![images](https://github.com/thespectacular314/VerifyIt---Chrome-Extension/blob/main/Animation%20-%201733412813716.gif)
+
+
 <h3>Part of Chrome Built-in AI Hackathon 2024 ⚡ </h3>
 
 ![WhatsApp Image 2024-12-04 at 11 59 40 AM](https://github.com/user-attachments/assets/e1b01b43-5ec3-4b2e-a156-0a76d571605a)
