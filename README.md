@@ -1,11 +1,9 @@
 # VerifyIt - Verify Truth in an Instant 
 
 <h3>Part of Chrome Built-in AI Hackathon 2024</h3>
-<div style="display: flex; align-items: center; justify-content: space-between;">
-    <a href="https://github.com/thespectacular314/VerifyIt---Chrome-Extension/">
-        <img src="https://github.com/user-attachments/assets/66344982-f429-423c-8b8f-31d384d0b9ea" alt="Logo" height="100">
-    </a>
-</div>
+
+![WhatsApp Image 2024-12-04 at 11 59 40 AM](https://github.com/user-attachments/assets/e1b01b43-5ec3-4b2e-a156-0a76d571605a)
+
 
 ---
 
@@ -36,6 +34,11 @@ Whether you're navigating news, social media, or research, VerifyIt uses cutting
 - **Google's Custom Search API**: An API search engine used to retrieve the URLs for a query.
 - **Crawl4AI**: Web scraping framework.
 - **Gemini AI**: For evaluating the target content for its truthfulness.
+
+---
+
+## Pipeline
+![Target Input is taken by the backend](https://github.com/user-attachments/assets/7c6a9703-9d60-45ac-b853-47c6c05a6bf9)
 
 ---
 
