@@ -8,14 +8,18 @@
 ---
 
 ## **About VerifyIt**
-VerifyIt, a light weight and High speed fact-checking Chrome extension designed to empower your digital journey.
-Whether you're navigating news, social media, or research, Using VerifyIt check authenticity of any content that too very fast. It comes with an Distraction free UI, where you can check Integrity of the facts while not compromising your reading environment. By offering real-time fact-checking, credibility scoring, and cross-referencing with trusted sources, VerifyIt empowers users to navigate the digital landscape with clarity and confidence. VerifyIt uses cutting-edge web scraping and intelligent analysis to provide instant truth validation for any statement.
+VerifyIt: The ultimate, lightweight, and high-speed fact-checking Chrome extension designed to empower your digital journey. Whether you're navigating news, social media, or research, VerifyIt lets you instantly check the authenticity of any content, all without interrupting your reading experience.
 
-### **Key Features**
-- **Real-Time Verification**: Scrapes web data to validate any statement instantly.  
-- **User-Friendly Interface**: Simple, clean, and intuitive extension design.  
-- **Comprehensive Analysis**: Ranks sources by credibility and provides a confidence score.  
-- **Privacy-First Approach**: Ensures your queries remain private and secure.
+At the core of VerifyIt lies advanced web scraping technology, which seamlessly gathers data from multiple sources across the web. This enables it to analyze and cross-check information in real time, ensuring reliable and accurate fact verification.
+
+With its distraction-free UI, VerifyIt integrates effortlessly into your browsing, providing integrity checks for facts without compromising your focus. Experience fast, efficient fact-checking and stay informed without missing a beat!
+
+### Key Innovative Features
+
+- **Real-Time Verification**: **Scrapes Web data** to validate any statement instantly.  
+- **Clean, Minimalist Interface** : Simple, clean, and intuitive extension design built based on User preference
+- **Comprehensive Analysis**: Ranks sources by credibility and provides a Trust scores, source credibility, detailed analysis 
+- **Privacy-First Approach**: Ensures your queries remain private and secure. And comes with access to history of all recent fact checks, for instant recap
 
 ---
 ### Building Steps ⚡
