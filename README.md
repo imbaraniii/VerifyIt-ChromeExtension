@@ -1,8 +1,4 @@
 # VerifyIt - Verify Truth in an Instant 
-
-![images](https://github.com/thespectacular314/VerifyIt---Chrome-Extension/blob/main/Animation%20-%201733412813716.gif)
-
-
 <h3>Part of Chrome Built-in AI Hackathon 2024 ⚡ </h3>
 
 ![WhatsApp Image 2024-12-04 at 11 59 40 AM](https://github.com/user-attachments/assets/e1b01b43-5ec3-4b2e-a156-0a76d571605a)
@@ -11,8 +7,8 @@
 ---
 
 ## **About VerifyIt**
-Welcome to **VerifyIt**, the ultimate fact-checking Chrome extension designed to empower your digital journey.  
-Whether you're navigating news, social media, or research, VerifyIt uses cutting-edge web scraping and intelligent analysis to provide instant truth validation for any statement.
+VerifyIt, a light weight and High speed fact-checking Chrome extension designed to empower your digital journey.
+Whether you're navigating news, social media, or research, Using VerifyIt check authenticity of any content that too very fast. It comes with an Distraction free UI, where you can check Integrity of the facts while not compromising your reading environment. By offering real-time fact-checking, credibility scoring, and cross-referencing with trusted sources, VerifyIt empowers users to navigate the digital landscape with clarity and confidence. VerifyIt uses cutting-edge web scraping and intelligent analysis to provide instant truth validation for any statement.
 
 ### **Key Features**
 - **Real-Time Verification**: Scrapes web data to validate any statement instantly.  
@@ -21,34 +17,30 @@ Whether you're navigating news, social media, or research, VerifyIt uses cutting
 - **Privacy-First Approach**: Ensures your queries remain private and secure.
 
 ---
-
-## **Tech Stack**
-### **Google Specific Framework used**
+### Building Steps ⚡
+## **Google Specific Framework used**
 
 - **Custom Search API**
 - **Programmable Search Engine by Google**
-- **Gemini AI** (Use fast infering gemini-1.5-flash)
+- **Gemini AI** (fast infering gemini-1.5-flash)
   
-### **Frontend**
+## **Frontend**
 - HTML5 & Bootstrap CSS: Responsive, modern design
 - JavaScript: Dynamic, interactive user experience
 
-### **Backend**
+## **Backend**
 - Flask API: Robust server-side processing and to handle asynchronous requests
 - Google Custom Search API: Comprehensive information retrieval
 - Crawl4AI: Intelligent web scraping framework
 - Gemini AI: Advanced content truthfulness evaluation, with Customized prompt template
-
-
+- Chrome's Local Storage: To ensure the history of the user's VerifyIt searches are stored and are accessible
 
 ### 🔧 Unique Technical Innovations
 
 - **Adaptive Search Query Generation**: Dynamically creates contextual search queries
 - **Intelligent Content Analysis**: Uses AI to understand nuanced information contexts
 - **Secure, Lightweight Extension**: Minimal performance overhead
-
-![images](https://github.com/thespectacular314/VerifyIt---Chrome-Extension/blob/main/Animation%20-%201733412694313.gif)
-
+  
 ---
 
 ## Pipeline
