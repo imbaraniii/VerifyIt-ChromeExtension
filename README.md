@@ -96,12 +96,17 @@ Check out our **live demo video** to see VerifyIt in action:
    - Enable **Developer Mode**.
    - Click on **Load unpacked** and select the project folder.
 
-5. Start the backend server:
+5. Install all the dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+     
+6. Start the backend server:
    ```bash
    python3 app.py
    ```
 
-6. Use the extension:
+7. Use the extension:
    - Go to any webpage you want to fact-check and click the **Analysis button** at the bottom left for a complete URL analysis.
    - Alternatively, select text and **right-click** to analyze it.
 
