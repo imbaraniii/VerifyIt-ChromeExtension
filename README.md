@@ -1,9 +1,17 @@
 # VerifyIt - Verify Truth in an Instant 
 <h3>Part of Chrome Built-in AI Hackathon 2024 ⚡ </h3>
-
-<div><img src="https://github.com/user-attachments/assets/f63ec699-e8c7-445f-b8f6-e62e49177a5c" alt="VerifyIt Logo" style="height: 400px; width: 400px"></div>
-
-
+<div>
+  <img 
+    src="https://github.com/user-attachments/assets/f63ec699-e8c7-445f-b8f6-e62e49177a5c" 
+    alt="VerifyIt Logo" 
+    style="height: 200px; width: 200px; float: left;"
+  > 
+  <img 
+    src="https://github.com/user-attachments/assets/279a46ca-4b6c-4ba2-986b-f6e4b2ac14b7" 
+    alt="Google Chrome Built-in AI" 
+    style="height: 200px; width: 400px; float: right"
+  > 
+</div>
 
 ---
 
