@@ -1,7 +1,8 @@
 # VerifyIt - Verify Truth in an Instant 
 <h3>Part of Chrome Built-in AI Hackathon 2024 ⚡ </h3>
 
-![WhatsApp Image 2024-12-04 at 11 59 40 AM](https://github.com/user-attachments/assets/e1b01b43-5ec3-4b2e-a156-0a76d571605a)
+![Screenshot from 2024-12-15 18-52-30](https://github.com/user-attachments/assets/f63ec699-e8c7-445f-b8f6-e62e49177a5c)
+
 
 
 ---
